@@ -9,10 +9,11 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { auth, db } from "../../firebaseConfig";
 import { ToastAndroid } from "react-native";
+import ResolveLogo from "../../assets/images/resolve.png";
 
 export default function HomeScreen() {
   const [userData, setUserData] = useState(null);
@@ -128,11 +129,12 @@ export default function HomeScreen() {
         {/* Header */}
         <View className="flex-row items-center mb-4">
           <View className="bg-[#e3f6e8] p-2 rounded-full mr-3">
-            <MaterialCommunityIcons
-              name="tree-outline"
-              size={24}
-              color="#4bb38a"
-            />
+            <View>
+              <Image
+                source={ResolveLogo}
+                style={{ width: 30, height: 30 }}
+              />
+            </View>
           </View>
           <View>
             <Text className="text-lg font-semibold text-[#222]">
